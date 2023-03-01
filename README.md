@@ -1,4 +1,5 @@
 # F1 Team Customizer / Fantasy Career Mode
+* Vlad Irinel-Georgian / Musat Petru / Ghibea Ovidiu Catalin (1231EA)
 
 * Our web app will be a F1 Team Creator. The user will be able to customize his team from the ground-up (team name, livery, engine supplier, main sponsor, drivers,
 team principal, engineer team, home track). The user will have an allocated budget to create his team with, and will only have one team per account.
