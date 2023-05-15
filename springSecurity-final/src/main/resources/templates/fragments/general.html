@@ -1,0 +1,13 @@
+<div th:fragment="top" xmlns:sec="http://www.w3.org/1999/xhtml">
+<div class="header">
+  <img  th:src="@{/images/companyLogo.jpg}" width="100px"  />
+  <span class="header-text">COMPANY NAME</span>
+</div>
+<nav>
+  <a href="/">Home</a>
+  <a  href="/products">Products</a>
+  <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">Admin</a>
+  <a href="/logout">Logout</a>
+  <a sec:authorize="hasRole('ROLE_USER')" href="/cart">Cart</a>
+</nav>
+</div>
