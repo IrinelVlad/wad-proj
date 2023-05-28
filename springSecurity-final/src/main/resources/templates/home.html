@@ -2,12 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css"/>
     <title>Home page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<div th:replace="fragments/general :: top"/>
+<div id="bg"></div>
+    <div id="header-container">
+        <h1>F1 Dream Career</h1>
+        <p>Create your Dream Formula 1 Team!</p>
+    </div>
+    <div id="button-container">
+        <a id="login-button" th:href="@{/login}">Log In</a>
+        <a id="signup-button" th:href="@{/register}">Sign Up</a>
+    </div>
+
+<div id="footer-container">
+        <p>Customize livery, driver and more...<br> Work within a budget and manage your team to Formula 1 glory!</p>
+    </div>
 </body>
 </html>

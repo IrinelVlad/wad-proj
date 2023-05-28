@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css"/>
   <title>Login</title>
 </head>
 <body>
-<h2>Login</h2>
 <form th:action="@{/login}" method="post">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+  <div id="bg"></div>
+  <div class="form-field">
+    <input type="email" placeholder="Email / Username" required/>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+
+  <div class="form-field">
+    <input type="password" placeholder="Password" required/>                         </div>
+
+  <div class="form-field">
+    <button class="btn" type="submit">Log in</button>
+    <a class="btn" id="signup-button" th:href="@{/register}">Sign Up</a>
   </div>
-  <button type="submit">Submit</button>
 </form>
 </body>
 </html>

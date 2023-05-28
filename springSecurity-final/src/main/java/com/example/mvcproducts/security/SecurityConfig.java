@@ -27,13 +27,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers(HttpMethod.POST,"/products/**")
+                                .requestMatchers(HttpMethod.POST,"/products/**","/admin/**")
                                 .hasAnyRole("ADMIN")
-                                .requestMatchers(HttpMethod.GET,"/products/**","/cart/**","/login/**")
+                                .requestMatchers(HttpMethod.GET,"/products/**","/cart/**")
                                 .hasAnyRole("USER","ADMIN")
-                                .requestMatchers(HttpMethod.GET,"/admin/**")
-                                .hasAnyRole("ADMIN")
-                                .requestMatchers("/","/css/**","/images/**").permitAll()
+                                .requestMatchers("/**","/css/**","/images/**","/login/**","/register/**").permitAll()
                 )
                 .formLogin()
                 .loginPage("/login")
