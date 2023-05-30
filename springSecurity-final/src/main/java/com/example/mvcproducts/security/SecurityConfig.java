@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -28,14 +30,20 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
                                 .requestMatchers(HttpMethod.POST,"/products/**","/admin/**")
-                                .hasAnyRole("ADMIN")
-                                .requestMatchers(HttpMethod.GET,"/products/**","/cart/**")
-                                .hasAnyRole("USER","ADMIN")
+                                .hasAnyRole("USER")
+                                .requestMatchers(HttpMethod.GET,"/products/**","/cart/**","/livery/**","/driver/**","/engine/**","/engineer/**")
+                                .hasAnyRole("USER")
                                 .requestMatchers("/**","/css/**","/images/**","/login/**","/register/**").permitAll()
                 )
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
                 .and()
                 .httpBasic()
                 .and()

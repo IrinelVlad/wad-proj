@@ -7,7 +7,7 @@
   <a href="/">Home</a>
   <a  href="/products">Products</a>
   <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">Admin</a>
-  <a href="/logout">Logout</a>
+  <a sec:authorize="hasRole('ROLE_ADMIN')" href="/logout">Logout</a>
   <a sec:authorize="hasRole('ROLE_USER')" href="/cart">Cart</a>
 </nav>
 </div>

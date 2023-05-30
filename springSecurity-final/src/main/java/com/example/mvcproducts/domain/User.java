@@ -32,12 +32,15 @@ public class User implements UserDetails {
     this.password = password;
     this.email = email;
   }
-
+  
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-    for(Role role : roles)
+    for(Role role : roles){
       authorities.add(new SimpleGrantedAuthority(role.toString()));
+    }
+
+
     return authorities;
   }
   @Override

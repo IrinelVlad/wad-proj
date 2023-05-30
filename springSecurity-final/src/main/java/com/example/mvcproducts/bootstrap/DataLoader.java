@@ -1,23 +1,21 @@
 package com.example.mvcproducts.bootstrap;
 
-import com.example.mvcproducts.domain.Product;
-import com.example.mvcproducts.domain.ProductType;
-import com.example.mvcproducts.domain.Role;
-import com.example.mvcproducts.domain.User;
-import com.example.mvcproducts.services.ProductService;
+import com.example.mvcproducts.domain.*;
+import com.example.mvcproducts.services.ModificationService;
 import com.example.mvcproducts.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 @Component
 public class DataLoader implements CommandLineRunner {
   private final UserService userService;
+  private final ModificationService modificationService;
 
-  public DataLoader(UserService userService) {
+  public DataLoader(UserService userService, ModificationService modificationService) {
     this.userService = userService;
+    this.modificationService = modificationService;
   }
 
   @Override
@@ -25,11 +23,12 @@ public class DataLoader implements CommandLineRunner {
 
 
     PasswordEncoder bcrypt = new BCryptPasswordEncoder();
-   /* User user1=new User("user1",bcrypt.encode("user1"));
-    user1.getRoles().add(Role.ROLE_USER);
-    User user2=new User("user2",bcrypt.encode("user2"));
-    user2.getRoles().add(Role.ROLE_ADMIN);
-    userService.save(user1);
-    userService.save(user2);*/
+
+    User user2=new User("user2",bcrypt.encode("user2"),"email@yahoo.com");
+    user2.getRoles().add(Role.ROLE_USER);
+    //System.out.println(user2.getRoles().get(0).toString());
+    userService.save(user2);
+    Modification honda = new Modification("honda",Type.ENGINE,10);
+    modificationService.save(honda);
   }
 }
