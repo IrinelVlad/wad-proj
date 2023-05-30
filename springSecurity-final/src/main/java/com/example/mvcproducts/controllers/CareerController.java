@@ -45,7 +45,15 @@ public class CareerController {
         return "livery";
     }
 
-
+    @PostMapping("/livery")
+    public String liveryMod(Authentication auth, @RequestBody Map<String, Object> data) {
+        Modification livery = modificationService.findbyName((String) data.get("name"));
+        User user = (User) auth.getPrincipal();
+        Career career = careerService.findByUser(user);
+        career.getModifications().add(livery);
+        careerService.save(career);
+        return "redirect:/career";
+    }
 
     @GetMapping("/driver")
     public String driver() {
@@ -81,5 +89,14 @@ public class CareerController {
     @GetMapping("/engineer")
     public String engineer() {
         return "engineer";
+    }
+    @PostMapping("/engineer")
+    public String engineerMod(Authentication auth, @RequestBody Map<String, Object> data) {
+        Modification engineer = modificationService.findbyName((String) data.get("name"));
+        User user = (User) auth.getPrincipal();
+        Career career = careerService.findByUser(user);
+        career.getModifications().add(engineer);
+        careerService.save(career);
+        return "redirect:/career";
     }
 }

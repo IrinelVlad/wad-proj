@@ -27,10 +27,17 @@
     $(document).ready(function(){
         $('.menu').mobileMenu();
       function chooseOption(option) {
-        window.location.href = "/livery?engine=" + encodeURIComponent(option);
-      }
+      const data = { name: option };
 
-    });
+      fetch('/livery', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      window.location.href = "/engineer";
+    }
   </script>
  
   </head>
@@ -63,7 +70,8 @@
                   The current champions' livery, the RB-19 uses the classic Red Bull Racing colours.
                   Will you have to enjoy the same success they have had in the last few years?
                 </p>
-                <a class="btn" th:href="@{/driver}">Choose</a>
+                <button class="btn" onclick="chooseOption('rblivery')">Choose</button>
+                
               </div>
               </div>
             </div>
@@ -78,7 +86,8 @@
                         The recent Formula 1 kings, Mercedes have been the dominant force of the 2010s.
                         Will you bring them back to the glory days with this all-black beauty?
                       </p>
-                      <a class="btn" th:href="@{/driver}">Choose</a>
+                      <button class="btn" onclick="chooseOption('merclivery')">Choose</button>
+                
                     </div>
                 </div>
               </div>
@@ -93,7 +102,8 @@
                       Formerly known as the Scuderia Ferrari, the SF-23 is the most iconic livery in Formula 1.
                         Will you be able to bring the Prancing Horse back to the top of the grid?
                     </p>
-                    <a class="btn" th:href="@{/driver}">Choose</a>
+                    <button class="btn" onclick="chooseOption('ferlivery')">Choose</button>
+                
                   </div>
                   </div>
               </div>
@@ -108,7 +118,8 @@
                     The MCL60 is the first McLaren to feature the light blue of the Gulf livery.
                     Can you bring a bit of orange to the top of the podium?
                 </p>
-                <a class="btn" th:href="@{/driver}">Choose</a>
+                <button class="btn" onclick="chooseOption('mcllivery')">Choose</button>
+                
               </div>
               </div>
             </div>
@@ -126,7 +137,8 @@
                     Alpine have entered Formula 1 for the first time in 2021, and they have brought their
                     iconic blue livery with them. Will you be able to make blue and pink the staple of podium fashion?
                   </p>
-                  <a class="btn" th:href="@{/driver}">Choose</a>
+                  <button class="btn" onclick="chooseOption('alplivery')">Choose</button>
+                
                 </div>
               </div>
             </div>
@@ -141,7 +153,8 @@
                     The FW45 is the first Williams to feature the blue and white livery.
                     The perfect livery for a team looking to make a comeback. Are you up to the challenge?
                   </p>
-                  <a class="btn" th:href="@{/driver}">Choose</a>
+                  <button class="btn" onclick="chooseOption('willlivery')">Choose</button>
+                
                 </div>
               </div>
             </div>
@@ -156,7 +169,8 @@
                     The AT04 is the first Alpha Tauri to feature the white and blue livery.
                     Use this livery and make your team a force to be reckoned with.
                   </p>
-                  <a class="btn" th:href="@{/driver}">Choose</a>
+                  <button class="btn" onclick="chooseOption('atlivery')">Choose</button>
+                
                 </div>
               </div>
             </div>
@@ -171,7 +185,8 @@
                     Aston Martin have returned to Formula 1 for the first time since 1960.
                     Will you be able to bring the British Racing Green back to the top of the grid?
                   </p>
-                  <a class="btn" th:href="@{/driver}">Choose</a>
+                  <button class="btn" onclick="chooseOption('amlivery')">Choose</button>
+                
                 </div>
               </div>
             </div>
