@@ -59,6 +59,16 @@ public class DataLoader implements CommandLineRunner {
     Modification fereng = new Modification("fereng",Type.ENGINEER,88);
     Modification mcleng = new Modification("mcleng",Type.ENGINEER,91);
 
+    Modification rblivery = new Modification("rblivery",Type.LIVERY,0);
+    Modification merclivery = new Modification("merclivery",Type.LIVERY,0);
+    Modification ferlivery = new Modification("ferlivery",Type.LIVERY,0);
+    Modification mcllivery = new Modification("mcllivery",Type.LIVERY,0);
+    Modification alplivery = new Modification("alplivery",Type.LIVERY,0);
+    Modification amlivery = new Modification("amlivery",Type.LIVERY,0);
+    Modification atlivery = new Modification("atlivery",Type.LIVERY,0);
+    Modification willlivery = new Modification("willlivery",Type.LIVERY,0);
+
+
 
     modificationService.save(honda);
     modificationService.save(mercedes);
@@ -88,6 +98,14 @@ public class DataLoader implements CommandLineRunner {
     modificationService.save(merceng);
     modificationService.save(fereng);
     modificationService.save(mcleng);
+    modificationService.save(rblivery);
+    modificationService.save(merclivery);
+    modificationService.save(ferlivery);
+    modificationService.save(mcllivery);
+    modificationService.save(alplivery);
+    modificationService.save(amlivery);
+    modificationService.save(atlivery);
+    modificationService.save(willlivery);
 
   }
 }
