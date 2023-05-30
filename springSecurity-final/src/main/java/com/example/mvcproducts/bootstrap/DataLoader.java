@@ -106,6 +106,5 @@ public class DataLoader implements CommandLineRunner {
     modificationService.save(amlivery);
     modificationService.save(atlivery);
     modificationService.save(willlivery);
-
   }
 }
