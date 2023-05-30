@@ -16,7 +16,7 @@ public class HomeController {
   public String home(Authentication authentication) {
     if (authentication == null)
       return "home";
-    return "redirect:/engine";
+    return "redirect:/career";
   }
 
   @PostMapping("/logout")
@@ -30,7 +30,7 @@ public class HomeController {
   }
   @PostMapping("/login")
   public String login() {
-    return "redirect:/engine";
+    return "redirect:/career";
   }
 
 
