@@ -19,7 +19,7 @@ public class DataLoader implements CommandLineRunner {
   }
 
   @Override
-  public void run(String... args) throws Exception {
+  public void run(String... args){
 
 
     PasswordEncoder bcrypt = new BCryptPasswordEncoder();
@@ -28,36 +28,36 @@ public class DataLoader implements CommandLineRunner {
     user2.getRoles().add(Role.ROLE_USER);
     //System.out.println(user2.getRoles().get(0).toString());
     userService.save(user2);
-    Modification honda = new Modification("honda",Type.ENGINE,10);
-    Modification mercedes = new Modification("mercedes",Type.ENGINE,10);
-    Modification ferrari = new Modification("ferrari",Type.ENGINE,10);
-    Modification renault = new Modification("renault",Type.ENGINE,10);
+    Modification honda = new Modification("honda",Type.ENGINE,99);
+    Modification mercedes = new Modification("mercedes",Type.ENGINE,93);
+    Modification ferrari = new Modification("ferrari",Type.ENGINE,95);
+    Modification renault = new Modification("renault",Type.ENGINE,89);
 
-    Modification verstappen = new Modification("verstappen",Type.DRIVER,10);
-    Modification checo = new Modification("checo",Type.DRIVER,10);
-    Modification lewis = new Modification("lewis",Type.DRIVER,10);
-    Modification russel = new Modification("russel",Type.DRIVER,10);
-    Modification leclerc = new Modification("leclerc",Type.DRIVER,10);
-    Modification carlos = new Modification("carlos",Type.DRIVER,10);
-    Modification alonso = new Modification("alonso",Type.DRIVER,10);
-    Modification stroll = new Modification("stroll",Type.DRIVER,10);
-    Modification ocon = new Modification("ocon",Type.DRIVER,10);
-    Modification gasly = new Modification("gasly",Type.DRIVER,10);
-    Modification oscar = new Modification("oscar",Type.DRIVER,10);
-    Modification lando = new Modification("lando",Type.DRIVER,10);
-    Modification zhou = new Modification("zhou",Type.DRIVER,10);
-    Modification bottas = new Modification("bottas",Type.DRIVER,10);
-    Modification albon = new Modification("albon",Type.DRIVER,10);
-    Modification logan = new Modification("logan",Type.DRIVER,10);
-    Modification yuki = new Modification("yuki",Type.DRIVER,10);
-    Modification devries = new Modification("devries",Type.DRIVER,10);
-    Modification kmag = new Modification("kmag",Type.DRIVER,10);
-    Modification hulk = new Modification("hulk",Type.DRIVER,10);
+    Modification verstappen = new Modification("verstappen",Type.DRIVER,95);
+    Modification checo = new Modification("checo",Type.DRIVER,90);
+    Modification lewis = new Modification("lewis",Type.DRIVER,86);
+    Modification russel = new Modification("russel",Type.DRIVER,88);
+    Modification leclerc = new Modification("leclerc",Type.DRIVER,86);
+    Modification carlos = new Modification("carlos",Type.DRIVER,80);
+    Modification alonso = new Modification("alonso",Type.DRIVER,94);
+    Modification stroll = new Modification("stroll",Type.DRIVER,82);
+    Modification ocon = new Modification("ocon",Type.DRIVER,80);
+    Modification gasly = new Modification("gasly",Type.DRIVER,78);
+    Modification oscar = new Modification("oscar",Type.DRIVER,70);
+    Modification lando = new Modification("lando",Type.DRIVER,87);
+    Modification zhou = new Modification("zhou",Type.DRIVER,73);
+    Modification bottas = new Modification("bottas",Type.DRIVER,82);
+    Modification albon = new Modification("albon",Type.DRIVER,79);
+    Modification logan = new Modification("logan",Type.DRIVER,69);
+    Modification yuki = new Modification("yuki",Type.DRIVER,75);
+    Modification devries = new Modification("devries",Type.DRIVER,68);
+    Modification kmag = new Modification("kmag",Type.DRIVER,73);
+    Modification hulk = new Modification("hulk",Type.DRIVER,71);
 
-    Modification rbeng = new Modification("rbeng",Type.ENGINEER,10);
-    Modification merceng = new Modification("merceng",Type.ENGINEER,10);
-    Modification fereng = new Modification("fereng",Type.ENGINEER,10);
-    Modification mcleng = new Modification("mcleng",Type.ENGINEER,10);
+    Modification rbeng = new Modification("rbeng",Type.ENGINEER,95);
+    Modification merceng = new Modification("merceng",Type.ENGINEER,93);
+    Modification fereng = new Modification("fereng",Type.ENGINEER,88);
+    Modification mcleng = new Modification("mcleng",Type.ENGINEER,91);
 
 
     modificationService.save(honda);

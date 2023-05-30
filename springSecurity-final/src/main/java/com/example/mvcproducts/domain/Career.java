@@ -16,10 +16,15 @@ public class Career {
     private Long id;
     @OneToMany // maybe @ElementCollection(fetch = FetchType.EAGER)
     private List<Modification> modifications = new ArrayList<>();
+    private String TeamName;
     @OneToOne
     private User user;
 
     public Career(User user) {
         this.user = user;
+    }
+
+    public Career(String teamName) {
+        TeamName = teamName;
     }
 }
