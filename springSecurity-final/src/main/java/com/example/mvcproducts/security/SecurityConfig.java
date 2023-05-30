@@ -29,9 +29,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers(HttpMethod.POST,"/products/**","/admin/**")
+                                .requestMatchers(HttpMethod.POST,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**")
                                 .hasAnyRole("USER")
-                                .requestMatchers(HttpMethod.GET,"/products/**","/cart/**","/livery/**","/driver/**","/engine/**","/engineer/**")
+                                .requestMatchers(HttpMethod.GET,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**")
                                 .hasAnyRole("USER")
                                 .requestMatchers("/**","/css/**","/images/**","/login/**","/register/**").permitAll()
                 )
