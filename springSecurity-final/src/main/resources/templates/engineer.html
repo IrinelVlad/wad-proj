@@ -28,10 +28,10 @@
     $(document).ready(function(){
       $('.menu').mobileMenu();
     });
-    function chooseOption(option) {
+    async function chooseOption(option) {
       const data = { name: option };
 
-      fetch('/engineer', {
+      await fetch('/engineer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +45,6 @@
 </head>
 
 <body>
-<p style="background-image: url('/images/Picture 1.jpeg')"> </p>
 <div class="header-wrapper">
   <div class="site-name">
     <h1>Select the engineer team</h1>

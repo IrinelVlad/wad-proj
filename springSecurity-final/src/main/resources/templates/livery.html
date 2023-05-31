@@ -26,18 +26,20 @@
       <script>
     $(document).ready(function(){
         $('.menu').mobileMenu();
+    });
       function chooseOption(option) {
-      const data = { name: option };
+        const data = {name: option};
 
-      fetch('/livery', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      window.location.href = "/engineer";
-    }
+        fetch('/livery', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+      window.location.href = "/driver";
+      }
   </script>
  
   </head>

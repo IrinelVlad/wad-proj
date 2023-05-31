@@ -22,4 +22,6 @@ public class Modification {
         this.type = type;
         this.skill = skill;
     }
+
+
 }

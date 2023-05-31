@@ -28,8 +28,13 @@ public class CareerController {
 
 
     @GetMapping("/career")
-    public String career(Model model) {
-        model.addAttribute("career", new Career());
+    public String career(Model model,Authentication auth) {
+        User user = (User) auth.getPrincipal();
+        if (careerService.findByUser(user) == null)
+            model.addAttribute("career", new Career());
+        else
+            model.addAttribute("career", careerService.findByUser(user));
+
         return "career";
     }
 
@@ -98,5 +103,10 @@ public class CareerController {
         career.getModifications().add(engineer);
         careerService.save(career);
         return "redirect:/career";
+    }
+
+    @GetMapping("/standings")
+    public String standings() {
+        return "standings";
     }
 }

@@ -54,7 +54,7 @@
 </div>
 <div class="container">
   <div class="featured-block">
-    <div class="row">
+    <div th:if="${career.getModifications().size() != 4}" class="row">
       <div class="col-md-3">
         <div class="block">
           <div class="caption">
@@ -75,20 +75,29 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" th:if="${career.getModifications().size() == 4}">
       <div class="col-md-3">
         <div class="block">
           <div class="thumbnail">
             <div class="caption">
-              <h1>Team Name: ...</h1>
+              <h1 th:text="${career.getTeamName()}">Team Name: ...</h1>
               <p>
-                Livery: ... <br>
-                Team Principal: ... <br>
-                Engine: ... <br>
-                Drivers: ... <br>
+                Livery: <span th:text="${career.getModifications()[3].name}">...</span><br>
+                Engineers: <span th:text="${career.getModifications()[2].name}">...</span><br>
+                Engine: <span th:text="${career.getModifications()[0].name}">...</span><br>
+                Driver: <span th:text="${career.getModifications()[1].name}">...</span><br>
               </p>
-              <a class="btn" style="height:50px;font-size:14pt; text-align: center;" href="standings.html"><br>PLAY</a>
+              <a class="btn" style="height:50px;font-size:14pt; text-align: center;" th:href="@{/standings}"><br>PLAY</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" th:if="${career.getModifications().size() != 4}">
+      <div class="col-md-3">
+        <div class="block">
+          <div class="caption">
+            <p>No career found</p>
           </div>
         </div>
       </div>

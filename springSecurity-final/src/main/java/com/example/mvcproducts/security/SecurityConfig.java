@@ -11,10 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 public class SecurityConfig {
@@ -29,11 +26,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers(HttpMethod.POST,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**")
+                                .requestMatchers(HttpMethod.POST,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**","/standings/**")
                                 .hasAnyRole("USER")
-                                .requestMatchers(HttpMethod.GET,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**")
+                                .requestMatchers(HttpMethod.GET,"/livery/**","/driver/**","/engine/**","/engineer/**","/career/**","/standings/**")
                                 .hasAnyRole("USER")
-                                .requestMatchers("/**","/css/**","/images/**","/login/**","/register/**").permitAll()
+                                .requestMatchers("/**","/css/**","/images/**","/login/**","/register/**","/home/**").permitAll()
                 )
                 .formLogin()
                 .loginPage("/login")
