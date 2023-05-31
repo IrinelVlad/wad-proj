@@ -2,17 +2,21 @@ package com.example.mvcproducts.controllers;
 
 import com.example.mvcproducts.domain.Career;
 import com.example.mvcproducts.domain.Modification;
+import com.example.mvcproducts.domain.Product;
 import com.example.mvcproducts.domain.User;
 import com.example.mvcproducts.repositories.ModificationRepository;
 import com.example.mvcproducts.services.CareerService;
 import com.example.mvcproducts.services.CareerServiceImpl;
 import com.example.mvcproducts.services.ModificationService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -34,7 +38,6 @@ public class CareerController {
             model.addAttribute("career", new Career());
         else
             model.addAttribute("career", careerService.findByUser(user));
-
         return "career";
     }
 
@@ -75,9 +78,9 @@ public class CareerController {
         return "redirect:/engineer";
     }
 
+
     @GetMapping("/engine")
     public String engine() {
-
         return "engine";
     }
 
@@ -106,7 +109,10 @@ public class CareerController {
     }
 
     @GetMapping("/standings")
-    public String standings() {
+    public String standings(Authentication auth,Model model) {
+        User user = (User) auth.getPrincipal();
+        Career career = careerService.findByUser(user);
+        model.addAttribute("career",career);
         return "standings";
     }
 }

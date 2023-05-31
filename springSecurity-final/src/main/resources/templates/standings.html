@@ -25,9 +25,25 @@
     <script src="/js/html5shiv.js"></script>
     <script src="/js/respond.min.js"></script>
     <script>
+        const name = document.getElementById("name");
+        const modifications = document.getElementById("modifications");
+        const skills = modifications.getElementsByTagName("span");
+
+
         $(document).ready(function(){
             $('.menu').mobileMenu();
         });
+
+        console.log(name.textContent);
+
+        function start() {
+
+            //console.log(career.toString())
+            for (let i = 0; i < skills.length; i++) {
+                let skill = skills[i].textContent;
+                console.log(skill);//window.location.href = "/driver";
+            }   
+        }    // Perform any desired operations with the skill value
     </script>
 
 </head>
@@ -53,11 +69,11 @@
                     <div class="thumbnail">
                         <div class="caption">
                             <h1>Standings</h1>
-                            <p>
-                                1. Team 1<br>
-                                2. Team 2<br>
-                            </p>
-                            <a class="btn" style="height:50px;font-size:14pt; text-align: center;" href="standings.html"><br>Simulate Race</a>
+                            <span id="name" th:text="${career.getTeamName()}"></span>
+                             <span id="modifications">
+                                 <span th:each="modification: ${career.getModifications()}" th:text="${modification.skill}"></span>
+                             </span>
+                            <button class="btn" onclick="start()" style="height:50px;font-size:14pt; text-align: center;" href="standings.html"><br>Simulate Race</button>
                         </div>
                     </div>
                 </div>
