@@ -59,7 +59,7 @@
         <div class="block">
           <div class="caption">
             <form th:action="@{/career}" th:object="${career}" method="post">
-              <input style="height:35px;font-size:14pt;margin-bottom: 20px" th:field="*{teamName}" type="text" name="teamName" placeholder="Enter team name" size="35" required>
+              <input style="height:35px;font-size:14pt;" th:field="*{teamName}" type="text" name="teamName" placeholder="Enter team name" size="35" required>
               <button class="btn" style="height:50px;font-size:14pt; text-align: center;" type="submit">Start a New Career</button>
             </form>
           </div>
@@ -102,20 +102,9 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="block">
-          <div class="caption">
-            <form th:action="@{/logout}" method="post"><button class="btn" type="submit">Logout</button> </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-
+  <form th:action="@{/logout}" method="post"><button type="submit">Logout</button> </form>
 </div>
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
